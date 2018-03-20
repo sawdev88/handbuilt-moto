@@ -1,0 +1,71 @@
+<section id="footer">
+  <div class="left-panel">
+    <%= image_tag '/assets/logo.png', class: 'logo' %>
+
+    <div class="callout">
+      <h6>
+        A project management system designed specifically for builders.
+      </h6>
+    </div>
+  </div>
+  <div class="right-panel">
+    <%= image_tag '/assets/build-process.png', class: 'build-process' %>
+
+    <div class="action-container">
+      <ul>
+        <li data-section="login">Login</li>
+        <li data-section="signup">Sign Up</li>
+      </ul>
+      <div class="login container flex-center" data-container="login">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "EMAIL" %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off", placeholder: "PASSWORD" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, class: 'white' %>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <%= f.submit "LOGIN", class: 'btn' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="sign-up container flex-center" data-container="signup">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.text_field :username, autofocus: true, placeholder: 'USER NAME' %>
+          </div>
+
+          <div class="field">
+            <%= f.email_field :email, autocomplete: "email", placeholder: 'EMAIL' %>
+          </div>
+
+          <div class="field">
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+              <%= f.password_field :password, autocomplete: "off", placeholder: 'PASSWORD' %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'PASSWORD CONFIRMATION' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "SIGN UP", class: 'btn' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

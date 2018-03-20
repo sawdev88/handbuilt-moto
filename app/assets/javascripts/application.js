@@ -13,3 +13,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery
+
+$(function () {
+  $('.action-container ul li').on('click', function () {
+    var section = $(this).data('section');
+
+    $('.container').each(function(){
+      $(this).hide();
+      if($(this).data('container') == section) {
+        $(this).show().css('display', 'flex');
+      }
+    });
+  })
+})
