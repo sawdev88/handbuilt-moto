@@ -15,7 +15,7 @@
 //= require_tree .
 //= require jquery
 
-$(function () {
+var ready = function () {
   $('.action-container ul li').on('click', function () {
     var section = $(this).data('section');
 
@@ -26,4 +26,6 @@ $(function () {
       }
     });
   })
-})
+}
+
+$(document).on('turbolinks:load', ready);

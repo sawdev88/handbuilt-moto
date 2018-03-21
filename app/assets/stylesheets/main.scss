@@ -76,6 +76,11 @@ textarea {
   display: flex;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
@@ -186,12 +191,25 @@ textarea {
   }
 }
 
+.high-priority {
+  background: #d9534f;
+}
+
+.low-priority {
+  background: #5bc0de;
+}
+
 // container
 
 #container {
   overflow-y: hidden;
   height: 100vh;
   background: #f4f5f7;
+}
+
+.content {
+  flex: 4;
+  padding: 1rem;
 }
 
 #header {
@@ -235,9 +253,9 @@ textarea {
 }
 
 #nav {
-  width: 18rem;
+  flex: 1;
   background: $dark;
-  height: 100%;
+  height: 100vh;
   padding: 2rem 1rem;
 
   .nav-icon {
@@ -262,5 +280,22 @@ textarea {
 
   .right {
     align-items: flex-end;
+  }
+}
+
+.shop-todo {
+  textarea {
+    width: 64vw;
+    display: inline-block;
+  }
+
+  .form-inputs {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .form-actions {
+    text-align: right;
+    padding-right: 4rem;
   }
 }

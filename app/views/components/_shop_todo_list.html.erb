@@ -1,0 +1,36 @@
+<%= simple_form_for(@todoNew) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.text_area :note %>
+  </div>
+
+  <%= f.select(:priority, options_for_select([['Normal', 1], ['High', 2], ['low', 3]]))%>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<% @todos.each do |t| %>
+  <ul class="table-row no-list-style">
+    <li>
+      <%= t.note %>
+      <span class="priority" style="visibility: hidden"><%= t.priority %></span>
+      <span><%= link_to 'Delete', t, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+    </li>
+  </ul>
+<% end %>
+
+<script>
+  $('.priority').each(function (v,i) {
+    console.log($(this).text());
+    if ($(this).text() === '1') {
+      $(this).parent().addClass('normal')
+    } else if ($(this).text() === '2') {
+      $(this).parent().addClass('high-priority')
+    } else {
+      $(this).parent().addClass('low-priority')
+    }
+  })
+</script>

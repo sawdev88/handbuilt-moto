@@ -1,0 +1,2 @@
+class ShopTodo < ApplicationRecord
+end
